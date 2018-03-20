@@ -155,7 +155,8 @@ void processButtonsPendingRequests()
         if(user.isServoReversed[2] == 0)
           user.isServoReversed[2] = 1;
         else user.isServoReversed[2] = 0;
-      }    
+      }
+      WriteToFlash(&user, sizeof(user), SECTOR31_FLASH_BEGINING);
       buttonJoyHandler.shortClickPendingRequest = 0;
       HAL_GPIO_WritePin(GPIOA, STS_LED_Pin, GPIO_PIN_RESET);
     }
